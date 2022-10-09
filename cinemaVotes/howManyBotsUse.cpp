@@ -26,6 +26,7 @@ int main() {
 	
 	cout << "X:";
 	cin >> X;
+	X = X + 0.5 - 0.00000001;
 	cout << "Y:";
 	cin >> Y;
 	cout << "N:";
