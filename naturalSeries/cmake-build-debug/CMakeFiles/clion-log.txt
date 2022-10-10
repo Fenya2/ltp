@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/fenya/2022/university/subjects/ltp/practica1/naturalSeries Select CMakeLists.txt

@@ -1,11 +1,26 @@
-//
-// Created by fenya on 03.10.22.
-//
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 int main() {
 	int N = 0;
 	cin >> N;
-	cout << N;
+	int i = 1;
+	int approximation = 0;
+	while(approximation + 9*i*pow(10, (i-1)) < N) {
+		approximation += 9*i*pow(10, i-1);
+		i += 1;
+	}
+	
+	int remainder = N - approximation - 1; // сколько цифр осталось до N
+	int num = pow(10, i-1) + remainder / i;
+	
+	cout << "i: " << i << endl;
+	cout << "approximation: " << approximation << endl;
+	cout << "remainder: " << remainder << endl;
+	cout << "num: " << num << endl;
+	int digit_index = remainder % i;
+	string tmp = to_string(num);
+	cout << tmp[digit_index] << endl;
 	return 0;
 }
