@@ -33,7 +33,7 @@ int main() {
 	if(X == Y) {
 		cout << 0 << endl;
 		return 0;
-	} else if (Y == 0) {
+	} else if (	== 0) {
 		cout << "error." << endl;
 		return 0;		
 	}	
