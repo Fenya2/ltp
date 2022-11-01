@@ -2,6 +2,8 @@
   2. Реализовать программу поиска корня квадратного уравнения на отрезке методом деления отрезка пополам с точностью 1•10^(-3). На вход даются три коэффициента квадратного уравнения (a•x^2+b•x+c=0) и две координаты концов (L, R).  Если данным методом корень найти невозможно, то вывести соответствующее сообщение. 
 */
 
+//CHECKED
+
 #include <iostream>
 #include <cmath>
 
@@ -43,8 +45,7 @@ int main() {
 		return 0;
 	}
 	
-	if(sqrfunc(A,B,C,L) > 0 && sqrfunc(A,B,C,R) > 0 ||
-		sqrfunc(A,B,C,L) > 0 && sqrfunc(A,B,C,R) < 0) {
+	if(sqrfunc(A,B,C,L) * sqrfunc(A,B,C,R) > 0 ) {
 			cout << "can't find roots on this slice.'" << endl;
 	}
 	
@@ -65,7 +66,7 @@ int main() {
 		} else {
 			if(sqrfunc(A,B,C,mid_of_LR) > 0) L = mid_of_LR;
 			else R = mid_of_LR;
-		}
+		}./
 		cout << L << ":" << sqrfunc(A,B,C,L) << "	" << R << ":" << sqrfunc(A,B,C,R) << endl;
 		mid_of_LR = (L+R)/2;
 	}

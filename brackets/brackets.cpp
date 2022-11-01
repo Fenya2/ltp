@@ -1,48 +1,48 @@
+#define deep 100
+
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-int main ()
+int main() 
 {
+	char open_br[deep];
+	for(int i = 0; i < size(open_br); i++)
+	{
+		open_br[i] = '0';
+	}
 	string seq;
 	getline(cin, seq);
-	char cur_br;
-	int cur_br_index = 0;
-	int max_deep = 0;
-	int cur_deep = 0;
+	int cur_br_idx = -1;
+	int max_deep = 0;; 
+	
 	for(int i = 0; i < seq.size(); i++)
 	{
-		if(seq[i] == '[' || seq[i]== '(')
+		if( seq[i] == '(' || seq[i] == '[' )
 		{
-			cur_br = seq[i];
-			cur_br_index = i;
-			cur_deep++;
-			continue;
+			cur_br_idx++;
+			open_br[cur_br_idx] = seq[i];
+			max_deep = max(max_deep, cur_br_idx + 1);
 		}
-		if( (cur_br == '[' && seq[i] == ']') || (cur_br == '(' && seq[i] == ')') )
+		if( seq[i] == ')' || seq[i] == ']' )
 		{
-			max_deep = max(cur_deep, max_deep);
-			cur_deep--;
-			for(int j = cur_br_index - 1; j >= 0; j--) //Хуйня
+			if ( (open_br[cur_br_idx] == '(' && seq[i] == ')') || (open_br[cur_br_idx] == '[' && seq[i] == ']'))
 			{
-				if( seq[j]=='(' || seq[j]=='[' )
-				{
-					cur_br = seq[j];
-					cur_br_index = j;
-					break;
-				}
+				open_br[cur_br_idx] = '0';
+				cur_br_idx--;
 			}
-			continue;
+			else 
+			{
+				cout << "Incorrect exp." << endl;
+				return 0;
+			}
 		}
-		if( (cur_br == '[' && seq[i] == ')') || (cur_br == '(' && seq[i] == ']') )
-		{
-			cout << "incorrect exp." << endl;
-			return 0;
-		}
-		
 	}
-cout << "correct exp. Max deep: " << max_deep << endl;
-return 0;
+	
+	if(cur_br_idx == -1)
+		cout << "Correct exp. Max deep: " << max_deep << endl;
+	else
+		cout << "Incorrect exp." << max_deep << endl;
+	return 0;
 }
-

@@ -1,3 +1,4 @@
+//CHECKED
 #include <iostream>
 #include <cmath>
 
