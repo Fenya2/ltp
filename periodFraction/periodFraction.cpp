@@ -1,4 +1,4 @@
-#define max_length 10
+#define max_length 100
 #include <iostream>
 
 using namespace std;
@@ -32,11 +32,6 @@ int main()
 	
 	int remainders[max_length];
 	int answer[max_length];
-	for (int i = 0; i < size(remainders); i++)
-	{
-		remainders[i] = -1;
-		answer[i] = -1;
-	}
 	
 	int cur_remainder = (a*10)%b;
 	answer[0] = (a*10)/b;
@@ -48,32 +43,33 @@ int main()
 	{
 		answer[counter] = (remainders[counter-1]*10) / b;
 		remainders[counter] = (remainders[counter-1]*10) % b;
-		for(int i = 0; i < counter-1; i++)
+		for(int i = 0; i < counter - 1; i++)
 		{
 			if(remainders[i] == remainders[counter] && answer[i] == answer[counter])
 			{
 				period_idx = i;
 				match = true;
+				counter -= 2;
 			}
 		}
 		counter++;
 	}
 	
-	for (int i = 0; i < size(remainders); i++)
+	cout << "rmd: ";
+	for (int i = 0; i < max_length; i++)
 	{
-		cout << remainders[i];
+		cout << remainders[i] << " ";
 	}
 	cout << endl;
-	for (int i = 0; i < size(remainders); i++)
+	cout << "ans: ";
+	for (int i = 0; i < max_length; i++)
 	{
-		cout << answer[i];
+		cout << answer[i] << " ";
 	}
 	cout << endl;
-	
-	cout << counter - period_idx << endl;
-		
+			
 	cout << a << "/" << b << " = " << "0.";
-	for(int i = 0; i < counter - check_period(period_idx, counter); i++ )
+	for(int i = 0; i < counter; i++ )
 	{
 		if(i == period_idx)
 			cout << "(";

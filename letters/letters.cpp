@@ -6,30 +6,30 @@ using namespace std;
 
 int main()
 {
-	ifstream pattern_file;
-	ifstream names_file;
-	ofstream letter_file;
-	
-	string names[100];
-	string name;
-	int names_quant = 0;
+        ifstream pattern_file;
+        ifstream names_file;
+        ofstream letter_file;
 
-	names_file.open("names.txt");
-	if (!names_file.is_open())
-    {
-		cout << "file 'names.txt' did not open*." << endl;
+        string names[100];
+        string name;
+        int names_quant = 0;
+
+        names_file.open("names.txt");
+        if (!names_file.is_open())
+        {
+                cout << "file 'names.txt' did not open*." << endl;
 		return 0;
 	}
 	while (getline(names_file, name))
-    {
+        {
 		names[names_quant] = name;
 		names_quant++;
-    }
-    names_file.close();
+        }
+        names_file.close();
     
 	pattern_file.open("pattern.txt");
 	if(!pattern_file.is_open())
-    {
+        {
 		cout << "can't 'open file pattern.txt." << endl;
 		return 0;
 	}
