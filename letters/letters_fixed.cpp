@@ -24,12 +24,6 @@ int main()
 	}
 	input_file.close();
 	
-	//for(int i = 0; i < pattern.size(); i++)
-	//{
-		//cout << pattern[i];
-	//}
-	//cout << endl;
-	
 	input_file.open("names.txt");
 	if (!input_file.is_open())
 	{
