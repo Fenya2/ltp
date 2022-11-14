@@ -23,7 +23,7 @@ int main()
 {
   const double eps = 0.000001;
   double A; 
-  double B; 
+  double B;
   double C;
   double L; 
   double R; 

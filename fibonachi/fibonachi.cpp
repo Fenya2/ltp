@@ -28,7 +28,11 @@ int main(int argc, char *argv[])
     sscanf(argv[1], "%d", &n);
     int expansion[maxExp];
     int expansion_size = 0;
-    
+    if(n < 1)
+    {
+      cout << "Type error; n must be natural." << endl;;
+      return -1;
+    }
     n--;
     while(n > 0)
     {

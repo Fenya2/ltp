@@ -17,7 +17,7 @@ int main()
         names_file.open("names.txt");
         if (!names_file.is_open())
         {
-                cout << "file 'names.txt' did not open*." << endl;
+          cout << "file 'names.txt' did not open*." << endl;
 		return 0;
 	}
 	while (getline(names_file, name))
