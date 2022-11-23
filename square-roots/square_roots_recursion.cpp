@@ -46,12 +46,12 @@ int main()
   cout << "R:  "; cin >> R;
 
   if(L >= R) {
-    cout << "incorrect input." << endl;
+    cout << "TypeError. incorrect input." << endl;
     return 0;
   }
 
   if(sqrfunc(A,B,C,L) * sqrfunc(A,B,C,R) > 0 )
-    cout << "can't find roots on this slice.'" << endl;
+    cout << "Can't find roots on this slice.'" << endl;
 
   
   //cout << sqrfunc(A,B,C,L) << endl;
