@@ -1,4 +1,4 @@
-#define max_length 100
+#define max_length 50
 #include <iostream>
 
 using namespace std;
@@ -43,7 +43,7 @@ int main()
 	{
 		answer[counter] = (remainders[counter-1]*10) / b;
 		remainders[counter] = (remainders[counter-1]*10) % b;
-		for(int i = 0; i < counter - 1; i++) // Артур сказал поставить i=1, работает для 1/7.
+		for(int i = 0; i < counter - 1; i++)
 		{
 			if(remainders[i] == remainders[counter] && answer[i] == answer[counter])
 			{
@@ -75,6 +75,7 @@ int main()
 			cout << "(";
 		cout << answer[i];
 	}
+  
 	cout << ")" << endl;
 	return 0;
 }
