@@ -5,7 +5,7 @@ using namespace std;
  
 int main()
 {
-  string str = "abcdef";
-  string slice = str.substr(2, 1);
-  cout << slice << endl;
+  int* arr = new int[5];
+  arr[5] = 1;
+  cout << arr[5] << endl;
 }
