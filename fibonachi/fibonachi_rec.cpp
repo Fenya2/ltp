@@ -1,25 +1,8 @@
 #define Matrix     vector <vector<int>>
-
 #include <iostream>
 #include <vector>
 
 using namespace std;
-
-void printMatrix(Matrix& matrix)
-{
-  cout << "==========" << endl;
-  for(int i = 0; i < matrix.size(); ++i)
-  {
-    for(int j = 0; j < matrix.at(i).size(); ++j)
-    {
-      cout << matrix.at(i).at(j) << " ";
-    }
-    cout << endl;
-  }
-  cout << "==========" << endl;
-  return;
-}
-
 
 Matrix multiplyMatrices(const Matrix matrix1, const Matrix matrix2)
 {
